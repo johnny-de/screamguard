@@ -1,0 +1,2 @@
+C:\Users\johnd\OneDrive\Documents\GitHub\screamguard\bin\Release\net8.0-windows\win-x64\publish\screamguard.pdb
+C:\Users\johnd\OneDrive\Documents\GitHub\screamguard\bin\Release\net8.0-windows\win-x64\publish\screamguard.exe
