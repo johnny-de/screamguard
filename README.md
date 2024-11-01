@@ -20,7 +20,7 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 
 3. **Loudness Sampling**: When ScreamGuard is actively listening, it samples the loudness level from the microphone at a user-defined interval (default is every 100 milliseconds).
 
-4. **Moving Median Calculation**: To offer a clearer picture of your overall loudness, ScreamGuard calculates a moving median based on the last few samples. This approach smooths out short-term fluctuations and provides a more stable representation of your vocal volume over time (default moving median over 10 samples).
+4. **Moving Median Calculation**: To offer a clearer picture of your overall loudness, ScreamGuard calculates a moving median based on the last few samples. This approach smooths out short-term fluctuations and provides a more stable representation of your vocal volume over time (default moving median over 20 samples).
 
 5. **Visual Feedback**: If the moving median exceeds user-defined thresholds:
    - **Warning Level**: An orange border appears on the screen to indicate that your voice level is approaching the limit.
