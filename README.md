@@ -36,7 +36,7 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 
 You can build ScreamGuard from the source code provided in this repository. Alternatively, a pre-built executable is available for x64 systems at the following link:
 
-[Download ScreamGuard](https://github.com/johnny-de/screamguard/blob/main/bin/Release/net8.0-windows/win-x64/publish/screamguard.exe)
+[Download ScreamGuard](https://github.com/johnny-de/screamguard/raw/refs/heads/main/bin/Release/net8.0-windows/win-x64/publish/screamguard.exe)
 
 ## Bug reports / feature requests
 
