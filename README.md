@@ -16,7 +16,7 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 
 1. **Microphone Selection**: At the start, users can select their preferred microphone from a dropdown list. ScreamGuard will actively monitor the chosen microphone for audio input.
 
-2. **Active Audio Stream Detection**: Upon startup, ScreamGuard listens for active audio streams. If no audio stream is detected, the ScreamGuard remains inactive, allowing it to run continuously in the background without interrupting your work or requiring manual stops when not in use.
+2. **Active Audio Stream Detection**: Upon startup, ScreamGuard listens for active audio streams. If no audio stream is detected, ScreamGuard remains inactive, allowing it to run continuously in the background without interrupting your work or requiring manual stops when not in use.
 
 3. **Loudness Sampling**: When ScreamGuard is actively listening, it samples the loudness level from the microphone at a user-defined interval (default is every 100 milliseconds).
 
@@ -29,7 +29,7 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 ### Settings
 
 <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/app_alarm.png" alt="Screenshot of ScreamGuard Settings" width="600" style="display: block; margin-left: auto; margin-right: auto;">
+    <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/app_alarm.png" alt="Screenshot of ScreamGuard Settings" width="300" style="display: block; margin-left: auto; margin-right: auto;">
 </div>
 
 ## Getting Started
