@@ -1,9 +1,24 @@
-﻿using System;
+﻿/* 
+ScreamGuard
+
+How to run:
+> dotnet build
+> dotnet run
+
+How to publish:
+> dotnet build
+> dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false
+*/
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using NAudio.CoreAudioApi;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Diagnostics;
 
 namespace ScreamGuard
 {
@@ -31,13 +46,15 @@ namespace ScreamGuard
         private bool monitoring = false;
         private OverlayForm overlayForm; // Overlay form to show warning
         private OverlayForm alarmOverlayForm; // Overlay form to show alarm
+        private const string SettingsFilePath = "screamguard_settings.json"; // Path to settings file
 
         public Program()
         {
             // Initialize UI components
             this.Text = "ScreamGuard"; // Set the title to ScreamGuard
-            this.Size = new System.Drawing.Size(400, 360); // Increased size to fit new fields
+            this.Size = new System.Drawing.Size(400, 380);
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // Prevent window resizing
+            this.Icon = new Icon("icon.ico"); // Set custom icon
 
             // Warning Level Label
             lblWarningLevel = new Label();
@@ -131,9 +148,83 @@ namespace ScreamGuard
             txtOutput.ReadOnly = true;
             this.Controls.Add(txtOutput);
 
+            // GitHub Link Label
+            LinkLabel linkLabelGitHub = new LinkLabel();
+            linkLabelGitHub.Text = "Find more information on GitHub";
+            linkLabelGitHub.Location = new System.Drawing.Point(10, 310);
+            linkLabelGitHub.AutoSize = true;
+            linkLabelGitHub.LinkClicked += (sender, args) => 
+            {
+                Process.Start(new ProcessStartInfo 
+                { 
+                    FileName = "https://github.com/johnny-de/screamguard", 
+                    UseShellExecute = true 
+                });
+            };
+            this.Controls.Add(linkLabelGitHub);
+
             enumerator = new MMDeviceEnumerator();
+            LoadSettings(); // Load Settings from file
             RefreshMicrophones(); // Populate microphones list initially
             StartMicrophoneRefresh(); // Start refreshing the list every 5 seconds
+        }
+
+        private void LoadSettings()
+        {
+            if (File.Exists(SettingsFilePath))
+            {
+                string json = File.ReadAllText(SettingsFilePath);
+                var settings = JsonSerializer.Deserialize<AppSettings>(json);
+
+                warningLevel = settings.WarningLevel;
+                alarmLevel = settings.AlarmLevel;
+                movingAveragePeriod = settings.MovingAveragePeriod;
+                samplingRate = settings.SamplingRate;
+
+                // Populate UI fields with loaded values
+                txtWarningLevel.Text = warningLevel.ToString();
+                txtAlarmLevel.Text = alarmLevel.ToString();
+                txtMovingAverage.Text = movingAveragePeriod.ToString();
+                txtSamplingRate.Text = samplingRate.ToString();
+
+                // Refresh microphone list to include any recent changes
+                RefreshMicrophones();
+
+                // Select the saved microphone by matching ID if it exists in current list
+                foreach (var device in cboMicrophones.Items.Cast<MMDevice>())
+                {
+                    if (device.ID == settings.MicrophoneId)
+                    {
+                        cboMicrophones.SelectedItem = device;
+                        selectedMicrophone = device;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                // Use default values if no settings file exists
+                txtWarningLevel.Text = "20";
+                txtAlarmLevel.Text = "30";
+                txtMovingAverage.Text = "20";
+                txtSamplingRate.Text = "100";
+            }
+        }
+
+
+        private void SaveSettings()
+        {
+            var settings = new AppSettings
+            {
+                WarningLevel = float.TryParse(txtWarningLevel.Text, out float wl) ? wl : warningLevel,
+                AlarmLevel = float.TryParse(txtAlarmLevel.Text, out float al) ? al : alarmLevel,
+                MovingAveragePeriod = int.TryParse(txtMovingAverage.Text, out int ma) ? ma : movingAveragePeriod,
+                SamplingRate = int.TryParse(txtSamplingRate.Text, out int sr) ? sr : samplingRate,
+                MicrophoneId = cboMicrophones.SelectedItem is MMDevice device ? device.ID : null
+            };
+
+            string json = JsonSerializer.Serialize(settings);
+            File.WriteAllText(SettingsFilePath, json);
         }
 
         private void RefreshMicrophones()
@@ -185,6 +276,7 @@ namespace ScreamGuard
             }
         }
 
+
         private async void StartMicrophoneRefresh()
         {
             while (true)
@@ -196,6 +288,8 @@ namespace ScreamGuard
 
         private void StartMonitoring(object sender, EventArgs e)
         {
+            SaveSettings(); // Save settings when monitoring starts
+
             if (cboMicrophones.SelectedItem == null)
             {
                 MessageBox.Show("Please select a microphone.");
@@ -365,6 +459,7 @@ namespace ScreamGuard
             monitoring = false; // Stop monitoring before closing
             overlayForm?.Hide(); // Hide overlay before closing
             alarmOverlayForm?.Hide(); // Hide alarm overlay before closing
+            SaveSettings(); // Save settings on close
             this.Close();
         }
 
@@ -409,5 +504,14 @@ namespace ScreamGuard
             base.OnShown(e);
             this.Activate(); // Activate the overlay
         }
+    }
+
+    public class AppSettings
+    {
+        public float WarningLevel { get; set; }
+        public float AlarmLevel { get; set; }
+        public int MovingAveragePeriod { get; set; }
+        public int SamplingRate { get; set; }
+        public string MicrophoneId { get; set; }
     }
 }
