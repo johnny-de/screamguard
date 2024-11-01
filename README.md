@@ -34,7 +34,7 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 
 ### Settings
 
-<div align="center">
+<div align="left">
     <a href="https://github.com/johnny-de/screamguard/">
         <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/app_alarm.png" alt="Screenshot of ScreamGuard Settings" width="300"/>
     </a>
