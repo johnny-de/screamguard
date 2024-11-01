@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("screamguard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+785ea0f1c8d9301c4c76569d54d5520b719695a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2d7a35601aa77796dd4a28a3d55a63528b27e59")]
 [assembly: System.Reflection.AssemblyProductAttribute("screamguard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("screamguard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

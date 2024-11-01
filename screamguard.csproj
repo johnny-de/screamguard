@@ -8,10 +8,12 @@
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <EmbeddedResource Include="icon.ico" />
   </ItemGroup>
 
 </Project>

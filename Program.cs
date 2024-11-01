@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace ScreamGuard
 {
@@ -54,7 +55,15 @@ namespace ScreamGuard
             this.Text = "ScreamGuard"; // Set the title to ScreamGuard
             this.Size = new System.Drawing.Size(400, 380);
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // Prevent window resizing
-            this.Icon = new Icon("icon.ico"); // Set custom icon
+            
+            // Load the embedded icon
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("screamguard.icon.ico"))
+            {
+                if (stream != null)
+                {
+                    this.Icon = new Icon(stream);
+                }
+            }
 
             // Warning Level Label
             lblWarningLevel = new Label();
