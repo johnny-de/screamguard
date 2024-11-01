@@ -2,8 +2,14 @@
 
 ScreamGuard is a .NET application designed to help manage your voice levels during calls, ensuring a quieter workspace for your colleagues. This tool is particularly useful for anyone who tends to speak loudly while on calls, helping to mitigate noise disturbances in shared environments.
 
-<div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/call_alarm.png" alt="Screenshot of ScreamGuard with alarm" width="600" style="display: block; margin-left: auto; margin-right: auto;">
+<a target="_blank" href="https://github.com/johnny-de/screamguard"><img src="https://img.shields.io/github/stars/johnny-de/screamguard?style=flat" /></a> 
+<a target="_blank" href="https://github.com/johnny-de/screamguard"><img src="https://img.shields.io/github/v/release/johnny-de/screamguard" /></a> 
+<a target="_blank" href="https://github.com/johnny-de/screamguard"><img src="https://img.shields.io/github/last-commit/johnny-de/screamguard" /></a>
+
+<div align="center">
+    <a href="https://github.com/johnny-de/screamguard/">
+        <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/call_alarm.png" alt="Screenshot of ScreamGuard with alarm" width="600"/>
+    </a>
 </div>
 
 ## Why ScreamGuard Exists
@@ -28,8 +34,10 @@ ScreamGuard is designed to be intuitive and user-friendly, providing several con
 
 ### Settings
 
-<div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/app_alarm.png" alt="Screenshot of ScreamGuard Settings" width="300" style="display: block; margin-left: auto; margin-right: auto;">
+<div align="center">
+    <a href="https://github.com/johnny-de/screamguard/">
+        <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/app_alarm.png" alt="Screenshot of ScreamGuard Settings" width="300"/>
+    </a>
 </div>
 
 ## Getting Started
