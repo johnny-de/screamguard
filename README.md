@@ -8,7 +8,7 @@ ScreamGuard is a .NET application designed to help manage your voice levels duri
 
 <div align="center">
     <a href="https://github.com/johnny-de/screamguard/">
-        <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/call_alarm.png" alt="Screenshot of ScreamGuard with alarm" width="600"/>
+        <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/call.gif" alt="Screenshot of ScreamGuard with alarm" width="600"/>
     </a>
 </div>
 
