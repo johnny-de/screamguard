@@ -1,4 +1,10 @@
-# ScreamGuard
+<div align="center">
+    <a href="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/logo.png">
+        <img src="./public/logo.svg" width="350" alt="ScreamGuard" />
+    </a>
+</div>
+
+<br>
 
 ScreamGuard is a .NET application designed to help manage your voice levels during calls, ensuring a quieter workspace for your colleagues. This tool is particularly useful for anyone who tends to speak loudly while on calls, helping to mitigate noise disturbances in shared environments.
 
