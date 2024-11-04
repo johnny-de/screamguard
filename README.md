@@ -1,6 +1,6 @@
 <div align="center">
-    <a href="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/logo.png">
-        <img src="./public/logo.svg" width="350" alt="ScreamGuard" />
+    <a href="https://github.com/johnny-de/screamguard">
+        <img src="https://raw.githubusercontent.com/johnny-de/data/refs/heads/main/screamguard/logo.png" width="350" alt="ScreamGuard" />
     </a>
 </div>
 
